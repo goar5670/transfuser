@@ -273,6 +273,7 @@ class LeaderboardEvaluator(object):
 
             # Check and store the sensors
             if not self.sensors:
+                print("came here")
                 self.sensors = self.agent_instance.sensors()
                 track = self.agent_instance.track
 
@@ -281,6 +282,7 @@ class LeaderboardEvaluator(object):
                 self.sensor_icons = [sensors_to_icons[sensor['type']] for sensor in self.sensors]
                 self.statistics_manager.save_sensors(self.sensor_icons, args.checkpoint)
 
+            print(self.sensors)
             self._agent_watchdog.stop()
 
         except SensorConfigurationInvalid as e:
